@@ -1,68 +1,132 @@
 package main
 
 import (
-	"fmt"
 	"github.com/wesovilabs/gherkinize/path"
 	"os"
 	"github.com/wesovilabs/gherkinize/gherkin"
-	"log"
 	"container/list"
+	"github.com/wesovilabs/gherkinize/util"
+	"fmt"
+	"github.com/fatih/color"
+	"github.com/wesovilabs/gherkinize/config"
 )
 
 func main() {
-	validateFiles("./testdata/scenarios/")
+	validateFiles("./testdata/scenarios/","./config/gherkin-rules.toml")
 }
 
-func validateFiles(scenarios_path string) error {
+func showInvalidStructureMessage(feature string, lineNumber int){
+	fmt.Println()
+	util.Print_subtitle(feature)
+	fmt.Println()
+	util.Print_error("Line: %d", lineNumber)
+	util.Print_error("Missing scenario keyword.")
+	color.White("[ USAGE ]")
+	util.Print_message("\tScenario:")
+	util.Print_message("\t   Given ...")
+	util.Print_message("\t   When ...")
+	util.Print_message("\t   Then ...")
+}
+
+func validateFiles(scenarios_path string, config_path string) error {
 	gherkin.InitializeTokenMap()
 	list_files := path.ReadDirectory(scenarios_path)
-	tokens := list.New()
-
+	configFile, err := os.Open(config_path)
+	if err != nil {
+		return nil
+	}
+	config := config.GetConfig(configFile)
 	for _, filePath := range list_files {
-		log.Print(filePath)
+
 		file, err := os.Open(filePath)
 		if err != nil {
-			log.Print("Error:", err)
 			return nil
 		}
+
+
+
+		defer file.Close()
 		scanner := gherkin.NewGherkinScanner(file)
 		lineNumber :=1
-		var feature gherkin.Feature
+		tokens := list.New()
+		fmt.Println()
+		fmt.Println()
+		util.Print_title("-------------------------------------------------- ")
+		util.Print_title("File " + filePath)
+		util.Print_title("-------------------------------------------------- ")
+		var feature = &gherkin.Feature{}
+		var invalidFeature = false
 		for {
 			token := scanner.Scan(lineNumber)
 			switch token.Kind {
 				case gherkin.EOF:
-					log.Print("EOFile")
-					fmt.Println(tokens)
-					var next *list.Element
-					for e := tokens.Front(); e != nil; e = next {
-						next = e.Next()
-						log.Println(e.Value)
-						tokens.Remove(e)
-					}
-					fmt.Println(feature.ToString())
-					return nil
+					feature.Validate(*config)
 				case gherkin.NEW_LINE:
-					lineNumber+=1
+					if(feature.LineNumber == 0) {
+						util.Print_error("Missing feature tag.")
+						invalidFeature = true
+						break
+					} else {
+						if (feature.Scenarios.Back() != nil){
+							step := token.ToStep()
+							feature.Scenarios.Back().Value.(gherkin.Scenario).Steps.PushBack(step)
+						}
+						lineNumber+=1
+					}
 				case gherkin.TOKEN_FEATURE:
-					feature = token.ToFeature()
+					*feature = token.ToFeature()
 				case gherkin.TOKEN_SCENARIO:
+					if(feature.LineNumber == 0) {
+						break
+					}
 					scenario := token.ToScenario()
 					feature.Scenarios.PushBack(scenario)
 				case gherkin.TOKEN_GIVEN:
 					step := token.ToStep()
-					feature.Scenarios.Back().Value.(gherkin.Scenario).Steps.PushBack(step)
+					if(feature.Scenarios.Back() == nil){
+						showInvalidStructureMessage(feature.Text, token.LineNumber)
+						invalidFeature = true
+						break
+					} else {
+						feature.Scenarios.Back().Value.(gherkin.Scenario).Steps.PushBack(step)
+					}
 				case gherkin.TOKEN_WHEN:
 					step := token.ToStep()
-					feature.Scenarios.Back().Value.(gherkin.Scenario).Steps.PushBack(step)
+					if(feature.Scenarios.Back() == nil){
+						showInvalidStructureMessage(feature.Text, token.LineNumber)
+						invalidFeature = true
+						break
+					} else {
+						feature.Scenarios.Back().Value.(gherkin.Scenario).Steps.PushBack(step)
+					}
 				case gherkin.TOKEN_THEN:
 					step := token.ToStep()
-					feature.Scenarios.Back().Value.(gherkin.Scenario).Steps.PushBack(step)
+					if(feature.Scenarios.Back() == nil){
+						showInvalidStructureMessage(feature.Text, token.LineNumber)
+						invalidFeature = true
+						break
+					} else {
+						feature.Scenarios.Back().Value.(gherkin.Scenario).Steps.PushBack(step)
+					}
+				case gherkin.TOKEN_AND:
+					step := token.ToStep()
+					if(feature.Scenarios.Back() == nil){
+						showInvalidStructureMessage(feature.Text, token.LineNumber)
+						invalidFeature = true
+						break
+					} else {
+						feature.Scenarios.Back().Value.(gherkin.Scenario).Steps.PushBack(step)
+					}
+			}
+			if(invalidFeature){
+				break
 			}
 			if(token.IsKeyword()){
 				tokens.PushBack(token)
-				log.Print(token.ToString())
 				lineNumber++
+			}
+			if(token.Kind == gherkin.EOF) {
+				break
 			}
 		}
 

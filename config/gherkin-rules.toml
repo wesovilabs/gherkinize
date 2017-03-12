@@ -1,16 +1,9 @@
-name = "Gherkin validation config file"
-author = "Iván Corrales Solera <developer@wesovilabs.com>"
-
 [errors]
-max_steps = 7
-steps_length = 100
-steps_termination = [",", ".", ";"]
-duplicated_scenarios = true
-empty_feature = true
-empty_scenario = true
-
+max_steps_per_scenario = 7
+max_len_step = 100
+empty_feature = false
+empty_scenario = false
+strict=true
 
 [warnings]
-duplicated_steps = true
-lines_between_steps = 0
-lines_between_scenarios = 2
+allowed_empy_lines_between_steps = false

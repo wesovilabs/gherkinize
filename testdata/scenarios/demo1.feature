@@ -1,4 +1,4 @@
-Feature: This is a feature
+aFeature: This is a feature
 
   Scenario: Coche arrancando
     When arranca

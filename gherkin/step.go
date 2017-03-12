@@ -52,3 +52,4 @@ type Step struct {
 func (gherkinToken *GherkinToken) ToStep() Step {
 	return Step{*gherkinToken}
 }
+
