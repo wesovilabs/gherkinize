@@ -28,17 +28,15 @@ If you wanna run the project locally I invite you to **[fork this repository](ht
 
 #### Makefile
 
-You will find a **Makefile** in the project root with the below tasks.
+You will find a **Makefile** in the project root.
 
-* make clean
+* make clean: Remove compiled files.
 
-* make test
+* make test: Run the tests  (there's no tests yet... so Sorry!!!)
 
-* make vet
+* make gherkinize: Build the runnable file.
 
-* make gherkinize
-
-* make install
+* make install: Install locally.
 
 
 ## Built With
