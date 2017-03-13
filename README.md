@@ -71,6 +71,10 @@ Assuming you make use of default configuration file and have a directory with so
 ### scenarioA.feature
 ![alt text](https://github.com/wesovilabs/gherkinize/blob/master/doc/scenarioA.png "Scenario A")
 
+The application will provide us the below
+
+![alt text](https://github.com/wesovilabs/gherkinize/blob/master/doc/scenarioA_result.png "Scenario A")
+
 
 
 ## The code
