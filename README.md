@@ -23,7 +23,7 @@ Once the software is installed we can make use of it.
 
 It displays the menu.
 
-![alt text](https://github.com/wesovilabs/gherkinize/blob/master/doc/run_command.png "Gherkinize help")
+![alt text](https://github.com/wesovilabs/gherkinize/blob/master/doc/help.png "Gherkinize help")
 
 **gherkinize --version / gherkinize -v**
 
