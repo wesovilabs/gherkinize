@@ -17,6 +17,11 @@ The purpose of this project is mainly helping people to write **Gherkin scenario
 brew install gherkinize
 ```
 
+### Running gherkinize
+
+![alt text](https://github.com/wesovilabs/gherkinize/blob/master/doc/run_command.png "Gherkinize help")
+
+
 
 ## The code
 
