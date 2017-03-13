@@ -43,7 +43,15 @@ modify the values at your convenience.
 ### Running as a Docker container
 
 In case of you prefer run **gherkinize** with a Docker container you can do it by running the below command
+```
+    docker run \
+    -v <PATH_TO_SCENARIOS_DIR>:/var/gherkinize/scenarios \
+    -v <PATH_TO_DIRECTORY_WITH_RULES_CONFIGURATION_FILE_TOML>:/var/gherkinize/config \
+    -it wesovilabs/gherkinize \
+    /app/dist/gherkinize -i /var/gherkinize/scenarios  -c /var/gherkinize/config/<RULES_CONFIGURATION_FILE_TOML> validate
+```
 
+For example:
 ```
     docker run \
     -v /Users/Ivan/Sandbox/WesoviLabs/GO_WORKSPACE/src/github.com/wesovilabs/gherkinize/testdata/scenarios/:/var/gherkinize/scenarios \
