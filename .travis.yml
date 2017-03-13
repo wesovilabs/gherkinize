@@ -9,7 +9,6 @@ before_script:
   - make vet
 
 scripts:
-  - make test
   - make gherkinize
   - git tag $GIT_TAG -a -m "Generated tag from TravisCI for build $TRAVIS_BUILD_NUMBER"
   - git push origin --tags
