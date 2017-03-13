@@ -73,7 +73,7 @@ Assuming you make use of default configuration file and have a directory with so
 
 The application will provide us the below
 
-![alt text](https://github.com/wesovilabs/gherkinize/blob/master/doc/scenarioA_result.png "Scenario A")
+![alt text](https://github.com/wesovilabs/gherkinize/blob/master/doc/scenarioA_result.png "Scenario A Result")
 
 
 
