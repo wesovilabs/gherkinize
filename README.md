@@ -19,7 +19,7 @@ brew install gherkinize
 
 Once the software is installed we can make use of it.
 
-** gherkinize help / gherkinize --h **
+**gherkinize --help / gherkinize -h**
 
 ![alt text](https://github.com/wesovilabs/gherkinize/blob/master/doc/run_command.png "Gherkinize help")
 
