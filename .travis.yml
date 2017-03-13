@@ -11,6 +11,8 @@ before_script:
 scripts:
   - make test
   - make gherkinize
+  - git tag $GIT_TAG -a -m "Generated tag from TravisCI for build $TRAVIS_BUILD_NUMBER"
+  - git push origin --tags
 
 notifications:
   email:
@@ -18,6 +20,13 @@ notifications:
       - developer@wesovilabs.com
     on_success: always
     on_failure: always
+
+before_deploy:
+  - git config --global user.email "developer@wesovilabs.com"
+  - git config --global user.name "Iván Corrales Solera"
+  - export GIT_TAG=$TRAVIS_BRANCH-0.1.$TRAVIS_BUILD_NUMBER
+  - git tag $GIT_TAG -a -m "Generated tag from TravisCI for build $TRAVIS_BUILD_NUMBER"
+  - git push origin --tags
 
 deploy:
   provider: releases
