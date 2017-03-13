@@ -35,6 +35,10 @@ It displays the current software version.
 
 It validates our scenarios. Both arguments **input** and **config** are required.
 
+- input: it must point to a directory that contains the scenarios to be validated. (So far it only supports directories path)
+- config:  it is a **toml** configuration file path that must look like below.
+
+
 
 ## The code
 
