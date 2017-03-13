@@ -11,7 +11,13 @@ The purpose of this project is mainly helping people to write **Gherkin scenario
 ## Getting Started
 
 
-### Installing
+### Running as a Docker container
+
+```
+    docker run -v /Users/Ivan/Sandbox/WesoviLabs/GO_WORKSPACE/src/github.com/wesovilabs/gherkinize/testdata/scenarios/:/var/gherkinize/scenarios -v /Users/Ivan/Sandbox/WesoviLabs/GO_WORKSPACE/src/github.com/wesovilabs/gherkinize/config/:/var/gherkinize/config -it wesovilabs/gherkinize /app/dist/gherkinize -i /var/gherkinize/scenarios  -c /var/gherkinize/config/gherkin-rules.toml validate
+```
+
+### Installing with Brew
 
 ```
 brew tap wesovilabs/gherkinize
