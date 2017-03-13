@@ -9,7 +9,7 @@ LDFLAGS=-ldflags "-X github.com/wesovilabs/gherkinize/core.Version=${VERSION} -X
 .DEFAULT_GOAL: $(BINARY)
 
 $(BINARY):
-		go build ${LDFLAGS} -o dist/${BINARY} gherkinize.go
+		env GOOS=darwin GOARCH=amd64 go build ${LDFLAGS} -o dist/${BINARY} gherkinize.go
 
 .PHONY: linux-arm
 linux-arm:
