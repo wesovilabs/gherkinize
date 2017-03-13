@@ -19,25 +19,10 @@ notifications:
     on_success: always
     on_failure: always
 
-before_deploy:
-  - git config --global user.email "developer@wesovilabs.com"
-  - git config --global user.name "Iván Corrales Solera"
-  - export GIT_TAG=$TRAVIS_BRANCH-0.1.$TRAVIS_BUILD_NUMBER
-  - git tag $GIT_TAG -a -m "Generated tag from TravisCI for build $TRAVIS_BUILD_NUMBER"
-  - git push origin --tags
-
 deploy:
-  skip_cleanup: true
   provider: releases
-  api_key:
-    secure: $GH_TOKEN
-  file:
-    - "dist/gherkinize"
+  api_key: $GH_TOKEN
+  file: "dist/gherkinize"
+  skip_cleanup: true
   on:
-    repo: wesovilabs/gherkinize
     tags: true
-    all_branches: true
-
-env:
-  global:
-    secure: $GH_TOKEN
