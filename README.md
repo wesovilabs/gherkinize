@@ -55,9 +55,9 @@ It validates our scenarios. Both arguments **input** and **config** are required
 
 **strict**: This checks the below conditions:
 
-    - The first step must be GIVEN
+* The first step must be GIVEN
 
-    - The keyword GIVEN can be only used once.
+* The keyword GIVEN can be only used once.
 
 
 
