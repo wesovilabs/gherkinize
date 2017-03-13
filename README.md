@@ -21,7 +21,16 @@ Once the software is installed we can make use of it.
 
 **gherkinize --help / gherkinize -h**
 
+It displays the menu.
+
 ![alt text](https://github.com/wesovilabs/gherkinize/blob/master/doc/run_command.png "Gherkinize help")
+
+**gherkinize --version / gherkinize -v**
+
+It displays the current software version.
+
+![alt text](https://github.com/wesovilabs/gherkinize/blob/master/doc/version.png "Gherkinize version")
+
 
 
 
