@@ -26,11 +26,19 @@ This project is completely developed in **Go**. Please don't hate me so much if 
 
 If you wanna run the project locally I invite you to **[fork this repository](https://github.com/wesovilabs/gherkinize)** and check it out.
 
-You will find a **Makefile** in the project root.
+#### Makefile
 
+You will find a **Makefile** in the project root with the below tasks.
 
+* make clean
 
+* make test
 
+* make vet
+
+* make gherkinize
+
+* make install
 
 
 ## Built With
