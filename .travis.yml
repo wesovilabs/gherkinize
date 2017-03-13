@@ -12,6 +12,13 @@ scripts:
   - make test
   - make gherkinize
 
+before_deploy:
+  - git config --global user.email "builds@travis-ci.com"
+  - git config --global user.name "Travis CI"
+  - export GIT_TAG=$TRAVIS_BRANCH-0.1.$TRAVIS_BUILD_NUMBER
+  - git tag $GIT_TAG -a -m "Generated tag from TravisCI for build $TRAVIS_BUILD_NUMBER"
+  - git push -q https://ivancorrales@github.com/wesovilabs/gherkinize --tags
+
 deploy:
   skip_cleanup: true
   provider: releases
@@ -23,3 +30,7 @@ deploy:
     repo: wesovilabs/gherkinize
     tags: true
     all_branches: true
+
+env:
+  global:
+    secure: $GH_TOKEN
