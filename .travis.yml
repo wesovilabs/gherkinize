@@ -9,10 +9,8 @@ before_script:
   - make vet
 
 scripts:
+  - make test
   - make gherkinize
-
-after_script:
-  - ls dist
 
 notifications:
   email:
