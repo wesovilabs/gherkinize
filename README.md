@@ -1,6 +1,6 @@
 # Gherkinize
 
-A tool that help us to write better Gherkin scenarios.
+A command line tool that will help us to write better Gherkin scenarios.
 
 ## Getting Started
 

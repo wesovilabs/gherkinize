@@ -4,42 +4,21 @@ import (
 	"bufio"
 	"bytes"
 	"strings"
-	"strconv"
 	"io"
-)
-
-const (
-	MaxScanTokenSize = 64 * 1024
-	startBufSize = 4096 // Size of initial allocation for buffer.
 )
 
 type GherkinScanner struct {
 	token		GherkinToken
 	r 		*bufio.Reader
-	Split 		bufio.SplitFunc
 }
 
-
-
-
 func NewGherkinScanner(r io.Reader) *GherkinScanner {
-
 	return &GherkinScanner{
 		r: bufio.NewReader(r),
 	}
 }
 
-func  GherkinSplitFun(data []byte, atEOF bool)  (advance int, token []byte, err error) {
-	advance, token, err = bufio.ScanLines(data, atEOF)
-	if err == nil && token != nil {
-		_, err = strconv.ParseInt(string(token), 10, 32)
-	}
-	return
-}
-
-
 func (s *GherkinScanner) Scan(lineNumber int) (gherkinToken GherkinToken) {
-
 	character := s.read()
 	if isWhiteSpace(character) {
 		return *newGherkinToken(AVOID,lineNumber)
@@ -79,9 +58,7 @@ func (s *GherkinScanner) scanGherkinTokenText() string {
 	}
 }
 
-// scanIdent consumes the current rune and all contiguous ident runes.
 func (s *GherkinScanner) scanIdent(lineNumber int) GherkinToken {
-	// Create a buffer and read the current character into it.
 	var buf bytes.Buffer
 	buf.WriteRune(s.read())
 	for {

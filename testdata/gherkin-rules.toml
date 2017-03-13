@@ -1,5 +1,5 @@
 [errors]
-max_steps_per_scenario = 7
+max_steps_per_scenario = 12
 max_len_step = 100
 empty_feature = false
 empty_scenario = false

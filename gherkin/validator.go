@@ -1,8 +1,8 @@
 package gherkin
 
 import (
-	"container/list"
 	"fmt"
+	"container/list"
 	"github.com/wesovilabs/gherkinize/util"
 	"github.com/wesovilabs/gherkinize/config"
 )
@@ -14,7 +14,7 @@ func (feature *Feature) validate_max_steps(max_steps int) {
 	for scenario := feature.Scenarios.Front(); scenario != nil; scenario = next {
 		next = scenario.Next()
 		if scenario.Value.(Scenario).Steps.Len() > max_steps {
-
+			feature.Successful = false
 			util.Print_error("Line: %d", scenario.Value.(Scenario).LineNumber)
 			util.Print_error("Scenario: %s", scenario.Value.(Scenario).Text)
 			util.Print_error("Number of steps: %d", scenario.Value.(Scenario).Steps.Len())
@@ -32,6 +32,7 @@ func (feature *Feature) validate_steps_length(steps_length int){
 		for step := scenario.Value.(Scenario).Steps.Front(); step != nil; step = nextStep {
 			nextStep = step.Next()
 			if len(step.Value.(Step).Text) > steps_length {
+				feature.Successful = false
 				util.Print_error("Line: %d", step.Value.(Step).LineNumber)
 				util.Print_error("Scenario: %s", scenario.Value.(Scenario).Text)
 				util.Print_error("Step: %s", step.Value.(Step).Text)
@@ -45,6 +46,7 @@ func (feature *Feature) validate_steps_length(steps_length int){
 
 func (feature *Feature) validate_empty_feature() {
 	if(feature.Scenarios.Len() <= 0){
+		feature.Successful = false
 		util.Print_error("Missing scenarios.")
 		fmt.Println()
 	}
@@ -56,6 +58,7 @@ func (feature *Feature) validate_empty_scenarios() {
 		for scenario := feature.Scenarios.Front(); scenario != nil; scenario = next {
 			next = scenario.Next()
 			if(scenario.Value.(Scenario).Steps.Len() <=0){
+				feature.Successful = false
 				util.Print_error("Line: %d", scenario.Value.(Scenario).LineNumber)
 				util.Print_error("Scenario: %s", scenario.Value.(Scenario).Text)
 				util.Print_error("A valid scenario must contains steps.")
@@ -72,9 +75,10 @@ func (feature *Feature) validate_lines_between_steps(){
 		for step := scenario.Value.(Scenario).Steps.Front(); step != nil; step = nextStep {
 			nextStep = step.Next()
 			if(step.Value.(Step).Kind == NEW_LINE){
-				util.Print_warning("Line %d", scenario.Value.(Scenario).LineNumber)
-				util.Print_warning("Scenario %s", scenario.Value.(Scenario).Text)
-				util.Print_warning("No empty lines are allowed.")
+				feature.Successful = false
+				util.Print_error("Line %d", scenario.Value.(Scenario).LineNumber)
+				util.Print_error("Scenario %s", scenario.Value.(Scenario).Text)
+				util.Print_error("No empty lines are allowed.")
 				fmt.Println()
 			}
 		}
@@ -84,6 +88,7 @@ func (feature *Feature) validate_lines_between_steps(){
 func (feature *Feature) validate_strict(){
 
 	if(feature.Scenarios.Len() <= 0){
+		feature.Successful = false
 		util.Print_error("Missing scenarios.")
 	} else {
 		stage := 0
@@ -96,20 +101,24 @@ func (feature *Feature) validate_strict(){
 				switch step.Value.(Step).Kind {
 					case TOKEN_AND:
 					if(stage==0){
+						feature.Successful = false
 						displayError(step.Value.(Step),scenario.Value.(Scenario).Text,"The first keyword ina  scenary must be Given.")
 					}
 					case TOKEN_GIVEN:
 						if(stage!=0){
+							feature.Successful = false
 							displayError(step.Value.(Step),scenario.Value.(Scenario).Text,"Given keyword can only be used once at the beggining of a sceneario.")
 						}
 						stage = 1
 					case TOKEN_WHEN:
 						if(stage!=1 && stage!=3){
+							feature.Successful = false
 							displayError(step.Value.(Step),scenario.Value.(Scenario).Text,"When keyword can only be used after Given or Then statements.")
 						}
 						stage = 2
 					case TOKEN_THEN:
 						if(stage!=2){
+							feature.Successful = false
 							displayError(step.Value.(Step),scenario.Value.(Scenario).Text,"Then keyword can only be used after Then statements.")
 						}
 						stage = 3
@@ -134,7 +143,7 @@ func (feature *Feature) Validate(config config.Config) {
 	fmt.Println()
 	feature.validate_max_steps(config.Errors.MaxStepsPerScenario)
 	feature.validate_steps_length(config.Errors.MaxLenStep)
-	if (!config.Warnings.AllowedEmptyLinesBetweenSteps) {
+	if (!config.Errors.AllowedEmptyLinesBetweenSteps) {
 		feature.validate_lines_between_steps()
 	}
 	if (!config.Errors.EmptyFeature) {
@@ -145,6 +154,8 @@ func (feature *Feature) Validate(config config.Config) {
 	}
 	if (!config.Errors.Strict) {
 		feature.validate_strict()
-
+	}
+	if(feature.Successful){
+		util.Print_success("Feature is OK.")
 	}
 }

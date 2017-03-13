@@ -1,0 +1,15 @@
+language: go
+go:
+  - 1.6
+  - 1.8.x
+  - master
+
+install: make get-deps
+
+before_script:
+  - make clean
+  - make vet
+
+scripts:
+  - make test
+  - make gherkinize

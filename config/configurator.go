@@ -1,14 +1,13 @@
 package config
 
 import (
+	"io"
 	"log"
 	"github.com/BurntSushi/toml"
-	"io"
 )
 
 type Config struct {
 	Errors 			errors
-	Warnings 		warnings
 }
 
 type errors struct {
@@ -16,11 +15,8 @@ type errors struct {
 	MaxLenStep 				int	`toml:"max_len_step"`
 	EmptyFeature 				bool	`toml:"empty_feature"`
 	EmptyScenario 				bool 	`toml:"empty_scenario"`
-	Strict					bool
-}
-
-type warnings struct {
 	AllowedEmptyLinesBetweenSteps		bool	`toml:"allowed_empy_lines_between_steps"`
+	Strict					bool
 }
 
 func GetConfig(reader io.Reader)(config *Config){

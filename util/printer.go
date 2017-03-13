@@ -9,7 +9,7 @@ func Print_title(message string){
 }
 
 func Print_subtitle(message string){
-	color.Yellow("[ " + message + " ]")
+	color.Magenta("[ " + message + " ]")
 }
 
 func Print_message(message string, params ...interface{}){
@@ -19,6 +19,13 @@ func Print_message(message string, params ...interface{}){
 		color.White("\t" + message, params[0])
 	}
 }
+func Print_success(message string, params ...interface{}){
+	if(params == nil){
+		color.Green("[ SUCCESS ]\t" + message)
+	} else {
+		color.Green("[ SUCCESS ]\t" + message, params[0])
+	}
+}
 
 func Print_error(message string, params ...interface{}){
 	if(params == nil){
@@ -26,12 +33,4 @@ func Print_error(message string, params ...interface{}){
 	} else {
 		color.Red("[ ERROR ]\t" + message, params[0])
 	}
-}
-func Print_warning(message string, params ...interface{}){
-	if(params == nil){
-		color.Magenta("[ WARNING ]\t" + message)
-	}else {
-		color.Magenta("[ WARNING ]\t" + message, params[0])
-	}
-
 }

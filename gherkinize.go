@@ -1,16 +1,16 @@
 package main
 
 import (
-	"github.com/wesovilabs/gherkinize/path"
 	"os"
-	"github.com/wesovilabs/gherkinize/gherkin"
-	"container/list"
-	"github.com/wesovilabs/gherkinize/util"
 	"fmt"
-	"github.com/fatih/color"
-	"github.com/wesovilabs/gherkinize/config"
-	"github.com/urfave/cli"
 	"sort"
+	"container/list"
+	"github.com/wesovilabs/gherkinize/path"
+	"github.com/wesovilabs/gherkinize/gherkin"
+	"github.com/wesovilabs/gherkinize/util"
+	"github.com/wesovilabs/gherkinize/config"
+	"github.com/fatih/color"
+	"github.com/urfave/cli"
 )
 
 func main() {
