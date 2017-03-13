@@ -43,6 +43,19 @@ It validates our scenarios. Both arguments **input** and **config** are required
 
 ![alt text](https://github.com/wesovilabs/gherkinize/blob/master/doc/rules.png "Gherkin Rules Validator")
 
+**max_steps_per_scenario**:
+
+**max_len_step**:
+
+**empty_feature**:
+
+**empty_scenario**:
+
+**allowed_empy_lines_between_steps**:
+
+**strict**:
+
+
 
 ## The code
 
