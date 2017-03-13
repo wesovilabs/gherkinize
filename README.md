@@ -39,6 +39,10 @@ It validates our scenarios. Both arguments **input** and **config** are required
 - config:  it is a **toml** configuration file path that must look like below.
 
 
+## Gherkin rules configuration file
+
+![alt text](https://github.com/wesovilabs/gherkinize/blob/master/doc/rules.png "Gherkin Rules Validator")
+
 
 ## The code
 
