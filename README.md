@@ -36,7 +36,8 @@ It displays the current software version.
 It validates our scenarios. Both arguments **input** and **config** are required.
 
 - input: it must point to a directory that contains the scenarios to be validated. (So far it only supports directories path)
-- config:  it is a **toml** configuration file path that must look like below. You can download [this](https://github.com/wesovilabs/gherkinize/blob/master/config/gherkin-rules.toml)
+- config:  it is a **toml** configuration file path that must look like below. You can download [this](https://github.com/wesovilabs/gherkinize/blob/master/config/gherkin-rules.toml) and
+modify the values at your convenience.
 
 
 ## Gherkin rules configuration file
