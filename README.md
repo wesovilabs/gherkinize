@@ -69,7 +69,7 @@ Assuming you make use of default configuration file and have a directory with so
 
 
 ### scenarioA.feature
-![alt text](https://github.com/wesovilabs/gherkinize/blob/master/doc/scenarioA.png "Scenario A")
+![alt text](https://github.com/wesovilabs/gherkinize/blob/master/doc/scenarioa.png "Scenario A")
 
 The application will provide us the below
 
@@ -103,13 +103,19 @@ The application will provide us the below
 
 ![alt text](https://github.com/wesovilabs/gherkinize/blob/master/doc/scenarioE_result.png "Scenario B Result")
 
-
 ### scenarioF.feature
 ![alt text](https://github.com/wesovilabs/gherkinize/blob/master/doc/scenarioF.png "Scenario B")
 
 The application will provide us the below
 
 ![alt text](https://github.com/wesovilabs/gherkinize/blob/master/doc/scenarioF_result.png "Scenario B Result")
+
+## scenarioG.feature
+![alt text](https://github.com/wesovilabs/gherkinize/blob/master/doc/scenarioG.png "Scenario B")
+
+The application will provide us the below
+
+![alt text](https://github.com/wesovilabs/gherkinize/blob/master/doc/scenarioG_result.png "Scenario B Result")
 
 ## The code
 
