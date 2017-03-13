@@ -63,6 +63,14 @@ modify the values at your convenience.
 * THEN statement can only be used after WHEN statements
 
 
+## Samples
+
+Assuming you make use of default configuration file and have a directory with somce sceanarios.
+
+
+### scenarioA.feature
+
+
 
 
 ## The code

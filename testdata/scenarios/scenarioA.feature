@@ -10,3 +10,11 @@ Feature: Scenario with no assertion statement (then)
   Given there are 20 cucumbers
   When I eat 5 cucumbers
   And I should have 15 cucumbers
+
+
+
+
+
+
+
+
