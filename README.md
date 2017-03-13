@@ -59,6 +59,10 @@ It validates our scenarios. Both arguments **input** and **config** are required
 
 * The keyword GIVEN can be only used once.
 
+* WHEN can only be used after GIVEN statements
+
+* THEN statement can only be used after WHEN statements
+
 
 
 ## The code
