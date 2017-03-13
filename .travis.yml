@@ -22,7 +22,7 @@ deploy:
   skip_cleanup: true
   provider: releases
   api_key:
-    secure: [redacted]
+    secure: $GH_TOKEN
   file:
     - "dist/gherkinize"
   on:
