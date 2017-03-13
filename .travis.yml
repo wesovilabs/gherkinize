@@ -10,8 +10,9 @@ before_script:
 
 scripts:
   - make gherkinize
-  - git tag $GIT_TAG -a -m "Generated tag from TravisCI for build $TRAVIS_BUILD_NUMBER"
-  - git push origin --tags
+
+after_script:
+  - ls dist
 
 notifications:
   email:
