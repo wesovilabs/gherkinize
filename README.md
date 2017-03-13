@@ -33,6 +33,8 @@ It displays the current software version.
 
 **gherkinize --input [scenarios_dir] --config [gherkin-rules.toml] validate**
 
+It validates our scenarios. Both arguments **input** and **config** are required.
+
 
 ## The code
 
