@@ -14,6 +14,7 @@ The purpose of this project is mainly helping people to write **Gherkin scenario
 ### Installing
 
 ```
+brew tap wesovilabs/gherkinize
 brew install gherkinize
 ```
 
