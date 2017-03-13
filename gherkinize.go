@@ -59,7 +59,6 @@ func main() {
 	}
 
 	sort.Sort(cli.FlagsByName(app.Flags))
-	sort.Sort(cli.CommandsByName(app.Commands))
 	app.Run(os.Args)
 
 }
