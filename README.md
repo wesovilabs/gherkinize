@@ -18,7 +18,9 @@ brew install gherkinize
 ```
 
 
-## About the code
+## The code
+
+This project is completely developed in **Go**. Please don't hate me so much if the code contains bad practices since I am just learning about Go coding.
 
 
 
