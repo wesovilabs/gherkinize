@@ -21,3 +21,4 @@ deploy:
     - "dist/gherkinize"
   on:
     tags: true
+    all_branches: true
