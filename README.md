@@ -17,7 +17,9 @@ The purpose of this project is mainly helping people to write **Gherkin scenario
 brew install gherkinize
 ```
 
-### Running gherkinize
+Once the software is installed we can make use of it.
+
+** gherkinize help / gherkinize --h **
 
 ![alt text](https://github.com/wesovilabs/gherkinize/blob/master/doc/run_command.png "Gherkinize help")
 
