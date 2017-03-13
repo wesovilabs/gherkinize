@@ -22,7 +22,7 @@ brew install gherkinize
 
 This project is completely developed in **Go**. Please don't hate me so much if the code contains bad practices since I am just learning about Go coding **;-)**
 
-### Running locally
+### Understanding the project
 
 If you wanna run the project locally I invite you to **[fork this repository](https://github.com/wesovilabs/gherkinize)** and check it out.
 
