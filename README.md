@@ -43,13 +43,13 @@ It validates our scenarios. Both arguments **input** and **config** are required
 
 ![alt text](https://github.com/wesovilabs/gherkinize/blob/master/doc/rules.png "Gherkin Rules Validator")
 
-**max_steps_per_scenario**:
+**max_steps_per_scenario**: It determines the maximum number of steps per scenario. Many steps could make our scenarios not easy-to-read
 
-**max_len_step**:
+**max_len_step**: Max len for steps. Steps with long text are usually hard to understand.
 
-**empty_feature**:
+**empty_feature**: Set false if you don't want to allow empty features without scenarios.
 
-**empty_scenario**:
+**empty_scenario**: Set false if you don't want to allow empty scenarios without steps.
 
 **allowed_empy_lines_between_steps**:
 
