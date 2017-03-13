@@ -2,6 +2,12 @@
 
 A command line tool that will help us to write better Gherkin scenarios.
 
+
+## Purpose
+
+The purpose of this project is mainly help people to write **Gherkin scenarios** correctly.
+
+
 ## Getting Started
 
 
@@ -12,7 +18,7 @@ brew install gherkinize
 ```
 
 
-##
+
 
 
 
