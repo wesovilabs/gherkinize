@@ -32,6 +32,10 @@ It displays the current software version.
 ![alt text](https://github.com/wesovilabs/gherkinize/blob/master/doc/version.png "Gherkinize version")
 
 
+**gherkinize --input <scenarios_dir> --config <gherkin-rules.toml> validate
+
+
+
 
 
 ## The code
