@@ -11,12 +11,6 @@ The purpose of this project is mainly helping people to write **Gherkin scenario
 ## Getting Started
 
 
-### Running as a Docker container
-
-```
-    docker run -v /Users/Ivan/Sandbox/WesoviLabs/GO_WORKSPACE/src/github.com/wesovilabs/gherkinize/testdata/scenarios/:/var/gherkinize/scenarios -v /Users/Ivan/Sandbox/WesoviLabs/GO_WORKSPACE/src/github.com/wesovilabs/gherkinize/config/:/var/gherkinize/config -it wesovilabs/gherkinize /app/dist/gherkinize -i /var/gherkinize/scenarios  -c /var/gherkinize/config/gherkin-rules.toml validate
-```
-
 ### Installing with Brew
 
 ```
@@ -46,6 +40,17 @@ It validates our scenarios. Both arguments **input** and **config** are required
 - config:  it is a **toml** configuration file path that must look like below. You can download [this](https://github.com/wesovilabs/gherkinize/blob/master/config/gherkin-rules.toml) and
 modify the values at your convenience.
 
+### Running as a Docker container
+
+In case of you prefer run **gherkinize** with a Docker container you can do it by running the below command
+
+```
+    docker run \
+    -v /Users/Ivan/Sandbox/WesoviLabs/GO_WORKSPACE/src/github.com/wesovilabs/gherkinize/testdata/scenarios/:/var/gherkinize/scenarios \
+    -v /Users/Ivan/Sandbox/WesoviLabs/GO_WORKSPACE/src/github.com/wesovilabs/gherkinize/config/:/var/gherkinize/config \
+    -it wesovilabs/gherkinize \
+    /app/dist/gherkinize -i /var/gherkinize/scenarios  -c /var/gherkinize/config/gherkin-rules.toml validate
+```
 
 ## Gherkin rules configuration file
 
