@@ -71,49 +71,49 @@ Assuming you make use of default configuration file and have a directory with so
 ### scenarioA.feature
 ![alt text](https://github.com/wesovilabs/gherkinize/blob/master/doc/scenarioa.png "Scenario A")
 
-The application will provide us the below
+The ourpt will be:
 
 ![alt text](https://github.com/wesovilabs/gherkinize/blob/master/doc/scenarioA_result.png "Scenario A Result")
 
 ### scenarioB.feature
 ![alt text](https://github.com/wesovilabs/gherkinize/blob/master/doc/scenarioB.png "Scenario B")
 
-The application will provide us the below
+The ourpt will be:
 
 ![alt text](https://github.com/wesovilabs/gherkinize/blob/master/doc/scenarioB_result.png "Scenario B Result")
 
 ### scenarioC.feature
 ![alt text](https://github.com/wesovilabs/gherkinize/blob/master/doc/scenarioC.png "Scenario B")
 
-The application will provide us the below
+The ourpt will be:
 
 ![alt text](https://github.com/wesovilabs/gherkinize/blob/master/doc/scenarioC_result.png "Scenario B Result")
 
 ### scenarioD.feature
 ![alt text](https://github.com/wesovilabs/gherkinize/blob/master/doc/scenarioD.png "Scenario B")
 
-The application will provide us the below
+The ourpt will be:
 
 ![alt text](https://github.com/wesovilabs/gherkinize/blob/master/doc/scenarioD_result.png "Scenario B Result")
 
 ### scenarioE.feature
 ![alt text](https://github.com/wesovilabs/gherkinize/blob/master/doc/scenarioE.png "Scenario B")
 
-The application will provide us the below
+The ourpt will be:
 
 ![alt text](https://github.com/wesovilabs/gherkinize/blob/master/doc/scenarioE_result.png "Scenario B Result")
 
 ### scenarioF.feature
 ![alt text](https://github.com/wesovilabs/gherkinize/blob/master/doc/scenarioF.png "Scenario B")
 
-The application will provide us the below
+The ourpt will be:
 
 ![alt text](https://github.com/wesovilabs/gherkinize/blob/master/doc/scenarioF_result.png "Scenario B Result")
 
 ## scenarioG.feature
 ![alt text](https://github.com/wesovilabs/gherkinize/blob/master/doc/scenarioG.png "Scenario B")
 
-The application will provide us the below
+The ourpt will be:
 
 ![alt text](https://github.com/wesovilabs/gherkinize/blob/master/doc/scenarioG_result.png "Scenario B Result")
 
