@@ -20,6 +20,9 @@ func NewGherkinScanner(r io.Reader) *GherkinScanner {
 
 func (s *GherkinScanner) Scan(lineNumber int) (gherkinToken GherkinToken) {
 	character := s.read()
+	if(character == eof){
+		return *newGherkinToken(EOF,lineNumber)
+	}
 	if isWhiteSpace(character) {
 		return *newGherkinToken(AVOID,lineNumber)
 	}
@@ -35,6 +38,7 @@ func (s *GherkinScanner) Scan(lineNumber int) (gherkinToken GherkinToken) {
 		case eof:
 			return *newGherkinToken(EOF,lineNumber)
 	}
+
 	return *newGherkinToken(ILLEGAL,lineNumber)
 }
 
@@ -50,7 +54,7 @@ func (s *GherkinScanner) scanGherkinTokenText() string {
 	var buf bytes.Buffer
 	buf.WriteRune(s.read())
 	for {
-		if ch := s.read(); isEndOfLine(ch) {
+		if ch := s.read(); (isEndOfLine(ch) || eof == ch){
 			return buf.String()
 		} else {
 			_, _ = buf.WriteRune(ch)
@@ -92,6 +96,7 @@ func (s *GherkinScanner) scanIdent(lineNumber int) GherkinToken {
 func (s *GherkinScanner) unread() { _ = s.r.UnreadRune() }
 
 func isEndOfLine(ch rune) bool { return ch == '\n' }
+func isEndOfFile(ch rune) bool { return ch == eof }
 // isWhitespace returns true if the rune is a space, tab, or newline.
 func isWhiteSpace(ch rune) bool { return ch == ' ' }
 // isLetter returns true if the rune is a letter.

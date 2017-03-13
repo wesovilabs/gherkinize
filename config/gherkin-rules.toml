@@ -1,7 +1,6 @@
 [errors]
 max_steps_per_scenario = 7
-max_len_step = 100
+max_len_step = 70
 empty_feature = false
 empty_scenario = false
-allowed_empy_lines_between_steps = false
 strict=true

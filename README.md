@@ -41,7 +41,7 @@ It validates our scenarios. Both arguments **input** and **config** are required
 
 ## Gherkin rules configuration file
 
-![alt text](https://github.com/wesovilabs/gherkinize/blob/master/doc/rules.png "Gherkin Rules Validator")
+![alt text](https://github.com/wesovilabs/gherkinize/blob/master/doc/config.png "Gherkin Rules Validator")
 
 **max_steps_per_scenario**: It determines the maximum number of steps per scenario. Many steps could make our scenarios not easy-to-read
 
@@ -50,8 +50,6 @@ It validates our scenarios. Both arguments **input** and **config** are required
 **empty_feature**: Set false if you don't want to allow empty features without scenarios.
 
 **empty_scenario**: Set false if you don't want to allow empty scenarios without steps.
-
-**allowed_empy_lines_between_steps**: Set false to check that there're not empty lines between steps from a same scenario.
 
 **strict**: This checks the below conditions:
 
@@ -62,6 +60,7 @@ It validates our scenarios. Both arguments **input** and **config** are required
 * WHEN can only be used after GIVEN statements
 
 * THEN statement can only be used after WHEN statements
+
 
 
 

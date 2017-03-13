@@ -114,12 +114,6 @@ func validateFiles(scenarios_path string, config_path string) error {
 						util.Print_error("Missing feature tag.")
 						invalidFeature = true
 						break
-					} else {
-						if (feature.Scenarios.Back() != nil){
-							step := token.ToStep()
-							feature.Scenarios.Back().Value.(gherkin.Scenario).Steps.PushBack(step)
-						}
-						lineNumber+=1
 					}
 				case gherkin.TOKEN_FEATURE:
 					*feature = token.ToFeature()
