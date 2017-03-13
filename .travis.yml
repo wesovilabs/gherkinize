@@ -11,3 +11,9 @@ before_script:
 scripts:
   - make test
   - make gherkinize
+  - make darwin-amd64
+  - make darwin-arm
+  - make darwin-386
+  - make linux-amd64
+  - make linux-arm
+  - make linux-386
