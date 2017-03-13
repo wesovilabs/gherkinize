@@ -69,7 +69,7 @@ Assuming you make use of default configuration file and have a directory with so
 
 For example, if you checkout this repository and run the below command:
 
-    gherkinize; dist/gherkinize -i testdata/scenarios/ -c config/gherkin-rules.toml  validate
+    **gherkinize -i testdata/scenarios/ -c config/gherkin-rules.toml  validate**
 
 the output will be the following:
 
