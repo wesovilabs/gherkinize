@@ -51,9 +51,11 @@ It validates our scenarios. Both arguments **input** and **config** are required
 
 **empty_scenario**: Set false if you don't want to allow empty scenarios without steps.
 
-**allowed_empy_lines_between_steps**:
+**allowed_empy_lines_between_steps**: Set false to check that there're not empty lines between steps from a same scenario.
 
-**strict**:
+**strict**: This checks the below conditions:
+    - The first step must be GIVEN
+    - The keyword GIVEN can be only used once.
 
 
 
