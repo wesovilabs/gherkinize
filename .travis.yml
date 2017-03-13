@@ -20,5 +20,6 @@ deploy:
   file:
     - "dist/gherkinize"
   on:
+    repo: wesovilabs/gherkinize
     tags: true
     all_branches: true
