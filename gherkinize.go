@@ -16,7 +16,7 @@ import (
 func main() {
 	app := cli.NewApp()
 	app.Name = "Gherkinize"
-	app.Usage = "Find the issues in your Gherkin features."
+	app.Usage = "A Gherkin utility command-line tool."
 	app.Version = "0.0.1"
 	app.Authors = []cli.Author{
 		cli.Author{
