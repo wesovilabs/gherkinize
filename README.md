@@ -23,13 +23,13 @@ Once the software is installed we can make use of it.
 
 It displays the menu.
 
-![alt text](https://github.com/wesovilabs/gherkinize/blob/master/doc/help.png "Gherkinize help")
+![alt text](https://github.com/wesovilabs/gherkinize/blob/master/doc/helpmenu.png "Gherkinize help")
 
 **gherkinize --version / gherkinize -v**
 
 It displays the current software version.
 
-![alt text](https://github.com/wesovilabs/gherkinize/blob/master/doc/version.png "Gherkinize version")
+![alt text](https://github.com/wesovilabs/gherkinize/blob/master/doc/versionmenu.png "Gherkinize version")
 
 **gherkinize --input [scenarios_dir] --config [gherkin-rules.toml] validate**
 
