@@ -9,10 +9,59 @@ import (
 	"fmt"
 	"github.com/fatih/color"
 	"github.com/wesovilabs/gherkinize/config"
+	"github.com/urfave/cli"
+	"sort"
 )
 
 func main() {
-	validateFiles("./testdata/scenarios/","./config/gherkin-rules.toml")
+	app := cli.NewApp()
+	app.Name = "Gherkinize"
+	app.Usage = "Find the issues in your Gherkin features."
+	app.Version = "0.0.1"
+	app.Authors = []cli.Author{
+		cli.Author{
+			Name:  "Iván Corrales Solera",
+			Email: "developer@wesovilabs.com",
+		},
+	}
+	app.Copyright = "(c) 2017 Wesovilabs"
+	app.EnableBashCompletion = true
+	var configurationFile string
+	var scenariosPath string
+	app.Flags = []cli.Flag{
+		cli.StringFlag{
+			Name:  "config, c",
+			Usage: "Load toml configuration from `FILE`",
+			Destination: &configurationFile,
+		},
+		cli.StringFlag{
+			Name:  "input, i",
+			Usage: "Scenarios directory path",
+			Destination: &scenariosPath,
+		},
+	}
+	app.Commands = []cli.Command{
+		{
+			Name:    "validate",
+			Aliases: []string{"v"},
+			Usage:   "validate the scenarios",
+			Action:  func(c *cli.Context) error {
+				if( scenariosPath == ""){
+					return cli.NewExitError("Please specify the scenarios path by using option -i", 86)
+				}
+				if(configurationFile == ""){
+					configurationFile = "./config/gherkin-rules.toml"
+				}
+				validateFiles(scenariosPath,configurationFile)
+				return nil
+			},
+		},
+	}
+
+	sort.Sort(cli.FlagsByName(app.Flags))
+	sort.Sort(cli.CommandsByName(app.Commands))
+	app.Run(os.Args)
+
 }
 
 func showInvalidStructureMessage(feature string, lineNumber int){
