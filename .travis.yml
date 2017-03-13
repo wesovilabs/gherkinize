@@ -11,9 +11,20 @@ before_script:
 scripts:
   - make test
   - make gherkinize
-  - make darwin-amd64
-  - make darwin-arm
-  - make darwin-386
-  - make linux-amd64
-  - make linux-arm
-  - make linux-386
+
+before_deploy:
+  - git config --global user.email "developer@wesovilabs.com"
+  - git config --global user.name "Iván Corrales Solera"
+  - export GIT_TAG=$TRAVIS_BRANCH-0.0.1.$TRAVIS_BUILD_NUMBER
+  - git tag $GIT_TAG -a -m "Generated tag from TravisCI for build $TRAVIS_BUILD_NUMBER"
+  - git push -q https://wesovilabs@github.com/wesovilabs/gherkinize --tags
+deploy:
+  skip_cleanup: true
+  provider: releases
+  api_key:
+    secure: [redacted]
+  file:
+    - "dist/gherkinize"
+  on:
+    tags: false
+    all_branches: master
