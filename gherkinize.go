@@ -16,7 +16,7 @@ import (
 func main() {
 	app := cli.NewApp()
 	app.Name = "Gherkinize"
-	app.Usage = "Find the issues in your Gherkin features."
+	app.Usage = "A Gherkin utility command-line tool."
 	app.Version = "0.0.1"
 	app.Authors = []cli.Author{
 		cli.Author{
@@ -59,7 +59,6 @@ func main() {
 	}
 
 	sort.Sort(cli.FlagsByName(app.Flags))
-	sort.Sort(cli.CommandsByName(app.Commands))
 	app.Run(os.Args)
 
 }
@@ -115,12 +114,6 @@ func validateFiles(scenarios_path string, config_path string) error {
 						util.Print_error("Missing feature tag.")
 						invalidFeature = true
 						break
-					} else {
-						if (feature.Scenarios.Back() != nil){
-							step := token.ToStep()
-							feature.Scenarios.Back().Value.(gherkin.Scenario).Steps.PushBack(step)
-						}
-						lineNumber+=1
 					}
 				case gherkin.TOKEN_FEATURE:
 					*feature = token.ToFeature()
